@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{mapRangeUserBean.page}"/>
+		<f:event type="preRenderView" listener="#{mapRangeUserBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Map Range User entities"/>
+
+	<ui:define name="header">
+		Map Range User
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Map Range User entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3"/>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{mapRangeUserBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{mapRangeUserBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="mapRangeUserBeanPageItems" styleClass="data-table" value="#{mapRangeUserBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Active"/>
+					</f:facet>
+					<h:link outcome="/mapRangeUser/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemActive" value="#{_item.active}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Userid"/>
+					</f:facet>
+					<h:link outcome="/mapRangeUser/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUserid" value="#{_item.userid}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Rangeid"/>
+					</f:facet>
+					<h:link outcome="/mapRangeUser/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemRangeid" value="#{_item.rangeid}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modified Date"/>
+					</f:facet>
+					<h:link outcome="/mapRangeUser/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModifiedDate" value="#{_item.modifiedDate}">
+							<f:convertDateTime type="both"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{mapRangeUserBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

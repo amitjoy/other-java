@@ -1,0 +1,11 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+ <feature name="fancyfoods" version="1.0.0">
+   <bundle>mvn:fancyfoods/fancyfoods.api/1.0.0</bundle>     
+   <bundle>mvn:fancyfoods/fancyfoods.web/1.0.0</bundle>
+   <bundle>mvn:fancyfoods/fancyfoods.business/1.0.0</bundle>
+   <bundle>mvn:fancyfoods/fancyfoods.datasource/1.0.0</bundle>
+   <bundle>mvn:fancyfoods/fancyfoods.persistence/1.0.0</bundle>
+   <bundle>mvn:fancyfoods/fancyfoods.department.chocolate/1.0.0</bundle>
+   <bundle>mvn:fancyfoods/fancyfoods.department.cheese/1.0.0</bundle>
+ </feature>
+</features>

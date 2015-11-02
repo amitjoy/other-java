@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{productRangeBean.page}"/>
+		<f:event type="preRenderView" listener="#{productRangeBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Product Range entities"/>
+
+	<ui:define name="header">
+		Product Range
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Product Range entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="productRangeBeanExampleRangeName" value="Range Name:"/>
+						<h:panelGroup>
+							<h:inputText id="productRangeBeanExampleRangeName" value="#{productRangeBean.example.rangeName}"/>
+							<h:message for="productRangeBeanExampleRangeName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="productRangeBeanExampleLineofbusinessID" value="Lineofbusiness ID:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{lineOfBusinessBean.converter}" id="productRangeBeanExampleLineofbusinessID" value="#{productRangeBean.example.lineofbusinessID}">
+								<f:selectItem/>
+								<f:selectItems value="#{lineOfBusinessBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="productRangeBeanExampleLineofbusinessID" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="productRangeBeanExampleCountryID" value="Country ID:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{countryBean.converter}" id="productRangeBeanExampleCountryID" value="#{productRangeBean.example.countryID}">
+								<f:selectItem/>
+								<f:selectItems value="#{countryBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="productRangeBeanExampleCountryID" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{productRangeBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{productRangeBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="productRangeBeanPageItems" styleClass="data-table" value="#{productRangeBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Range Name"/>
+					</f:facet>
+					<h:link outcome="/productRange/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemRangeName" value="#{_item.rangeName}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modified Date"/>
+					</f:facet>
+					<h:link outcome="/productRange/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModifiedDate" value="#{_item.modifiedDate}">
+							<f:convertDateTime type="both"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Lineofbusiness ID"/>
+					</f:facet>
+					<h:link outcome="/productRange/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLineofbusinessID" value="#{_item.lineofbusinessID}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Country ID"/>
+					</f:facet>
+					<h:link outcome="/productRange/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCountryID" value="#{_item.countryID}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{productRangeBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

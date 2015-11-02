@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_AJZocAmOEeOezfcOIlD2ow" elementId="org.eclipse.e4.ide.application">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_AJZocQmOEeOezfcOIlD2ow" label="CodeSnippetApp" width="500" height="400">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_5zwDEAmPEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.perspectivestack.0">
+      <children xsi:type="advanced:Perspective" xmi:id="_6iCFYAmPEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.perspective.0">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_8mJ5QAmPEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.partsashcontainer.0" horizontal="true">
+          <children xsi:type="basic:Part" xmi:id="_BbnMUAmQEeOezfcOIlD2ow" elementId="codesnippetapp.snippet.list" containerData="2" contributionURI="bundleclass://CodeSnippetApp_Kepler/codesnippetapp.views.SnippetListView" label="Code Snippets">
+            <menus xsi:type="menu:PopupMenu" xmi:id="_1FexkAmZEeOezfcOIlD2ow" elementId="codesnippetapp.snippetlist.popupmenu" label="New Snippet">
+              <children xsi:type="menu:DirectMenuItem" xmi:id="_2w8N0AmZEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.directmenuitem.0" label="New Snippet" contributionURI="bundleclass://CodeSnippetApp_Kepler/codesnippetapp.handlers.NewSnippetMenuHandler"/>
+              <children xsi:type="menu:DirectMenuItem" xmi:id="_-xeVwAmZEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.directmenuitem.1" label="Delete" contributionURI="bundleclass://CodeSnippetApp_Kepler/codesnippetapp.handlers.DeleteSnippetMenuHandler">
+                <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_55v1AAmdEeOezfcOIlD2ow" coreExpressionId="CodeSnippetApp.delete.snippet.expression"/>
+              </children>
+            </menus>
+          </children>
+          <children xsi:type="basic:Part" xmi:id="_FmNkgAmQEeOezfcOIlD2ow" elementId="codesnippetapp.snippet.details" containerData="8" contributionURI="bundleclass://CodeSnippetApp_Kepler/codesnippetapp.views.SnippetDetailsView" label="Snippet Details"/>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_3pwGIAmOEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.menu.0">
+      <children xsi:type="menu:Menu" xmi:id="_hgJ_gAmTEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.menu.1" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_oIas8AmTEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.handledmenuitem.0" label="Open" iconURI="platform:/plugin/CodeSnippetApp_Kepler/icons/sample.gif" command="_vsrvoAmTEeOezfcOIlD2ow"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_KhVd4AmUEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.handledmenuitem.1" label="Save" iconURI="platform:/plugin/CodeSnippetApp_Kepler/icons/save_edit.gif" command="_ljhjwAmSEeOezfcOIlD2ow"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_Pu8yQAmUEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.handledmenuitem.2" label="Quit" command="_gaDvkAmSEeOezfcOIlD2ow"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_kSF7oAmTEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.menu.2" label="Help">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_SixkwAmUEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.handledmenuitem.3" label="About" command="_qhq4wAmSEeOezfcOIlD2ow"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_5feRoAmOEeOezfcOIlD2ow" elementId="codesnippetapp.search.menu" label="Search">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_-VIZAAmOEeOezfcOIlD2ow" elementId="codesnippetapp.find.menu" label="Find" command="_LR61AAmOEeOezfcOIlD2ow"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_J4DCkAmPEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.trimbar.0">
+      <children xsi:type="menu:ToolBar" xmi:id="_Kk79wAmPEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.toolbar.0">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_lsavIAmUEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.handledtoolitem.0" iconURI="platform:/plugin/CodeSnippetApp_Kepler/icons/sample.gif" command="_vsrvoAmTEeOezfcOIlD2ow"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_qk3r0AmUEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.handledtoolitem.1" iconURI="platform:/plugin/CodeSnippetApp_Kepler/icons/save_edit.gif" command="_ljhjwAmSEeOezfcOIlD2ow"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MbfPsAmPEeOezfcOIlD2ow" elementId="codesnippetapp.find.toolbar" label="Find" iconURI="platform:/plugin/CodeSnippetApp_Kepler/icons/find.gif" command="_LR61AAmOEeOezfcOIlD2ow"/>
+      </children>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_eNTkIAmSEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.handler.0" contributionURI="bundleclass://CodeSnippetApp_Kepler/codesnippetapp.handlers.QuitHandler" command="_gaDvkAmSEeOezfcOIlD2ow"/>
+  <handlers xmi:id="__S7rwAmTEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.handler.3" contributionURI="bundleclass://CodeSnippetApp_Kepler/codesnippetapp.handlers.OpenHandler" command="_vsrvoAmTEeOezfcOIlD2ow"/>
+  <handlers xmi:id="_IUqAYAmTEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.handler.1" contributionURI="bundleclass://CodeSnippetApp_Kepler/codesnippetapp.handlers.SaveHandler" command="_ljhjwAmSEeOezfcOIlD2ow"/>
+  <handlers xmi:id="_VkZ_MAmTEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.handler.2" contributionURI="bundleclass://CodeSnippetApp_Kepler/codesnippetapp.handlers.AboutHandler" command="_qhq4wAmSEeOezfcOIlD2ow"/>
+  <handlers xmi:id="_XAWLAAmOEeOezfcOIlD2ow" elementId="codesnippetapp.find.handler" contributionURI="bundleclass://CodeSnippetApp_Kepler/codesnippetapp.handlers.FindCommandHandler" command="_LR61AAmOEeOezfcOIlD2ow"/>
+  <bindingTables xmi:id="_mNASsAmfEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.bindingtable.0" bindingContext="_Wvm7IAmgEeOezfcOIlD2ow">
+    <bindings xmi:id="_vDkqwAmfEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.keybinding.0" keySequence="M1+Q" command="_gaDvkAmSEeOezfcOIlD2ow"/>
+    <bindings xmi:id="_yO6lYAmfEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.keybinding.1" keySequence="M1+O" command="_vsrvoAmTEeOezfcOIlD2ow"/>
+    <bindings xmi:id="_1VwagAmfEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.keybinding.2" keySequence="M1+S" command="_ljhjwAmSEeOezfcOIlD2ow"/>
+    <bindings xmi:id="_ApvQMAmgEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.keybinding.3" keySequence="M1+A" command="_qhq4wAmSEeOezfcOIlD2ow"/>
+    <bindings xmi:id="_EXMZYAmgEeOezfcOIlD2ow" elementId="codesnippetapp_kepler.keybinding.4" keySequence="M1+F" command="_LR61AAmOEeOezfcOIlD2ow"/>
+  </bindingTables>
+  <rootContext xmi:id="_Wvm7IAmgEeOezfcOIlD2ow" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_cP1CcAmgEeOezfcOIlD2ow" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_n1xK0AmgEeOezfcOIlD2ow" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <commands xmi:id="_gaDvkAmSEeOezfcOIlD2ow" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
+  <commands xmi:id="_vsrvoAmTEeOezfcOIlD2ow" elementId="CodeSnippetApp.open" commandName="openCommand"/>
+  <commands xmi:id="_ljhjwAmSEeOezfcOIlD2ow" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
+  <commands xmi:id="_qhq4wAmSEeOezfcOIlD2ow" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_LR61AAmOEeOezfcOIlD2ow" elementId="codesnippetapp.find.command" commandName="findCommand"/>
+  <addons xmi:id="_AJZocgmOEeOezfcOIlD2ow" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_AJZocwmOEeOezfcOIlD2ow" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_AJZodAmOEeOezfcOIlD2ow" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_AJZodQmOEeOezfcOIlD2ow" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_AJZodgmOEeOezfcOIlD2ow" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_AJZodwmOEeOezfcOIlD2ow" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_AJZoeAmOEeOezfcOIlD2ow" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>

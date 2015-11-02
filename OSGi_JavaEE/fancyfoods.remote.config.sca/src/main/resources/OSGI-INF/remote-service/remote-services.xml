@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint-descriptions
+	xmlns="http://www.osgi.org/xmlns/rsa/v1.0.0"
+	xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+	xmlns:tuscany="http://tuscany.apache.org/xmlns/sca/1.1">
+	<endpoint-description>
+		<property
+			name="objectClass"
+			value="fancyfoods.offers.SpecialOffer" />
+ 		<property
+			name="remote.configs.supported"
+			value="org.osgi.sca" />
+		<property
+			name="service.imported.configs"
+			value="org.osgi.sca" />
+		<property
+			name="org.osgi.sca.bindings">
+			<list>
+				<value>{http://fancyfoods}ForeignFood</value>
+			</list>
+		</property>
+	</endpoint-description>
+</endpoint-descriptions>

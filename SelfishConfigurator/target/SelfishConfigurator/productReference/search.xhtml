@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{productReferenceBean.page}"/>
+		<f:event type="preRenderView" listener="#{productReferenceBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Product Reference entities"/>
+
+	<ui:define name="header">
+		Product Reference
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Product Reference entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="productReferenceBeanExampleColor" value="Color:"/>
+						<h:panelGroup>
+							<h:inputText id="productReferenceBeanExampleColor" value="#{productReferenceBean.example.color}"/>
+							<h:message for="productReferenceBeanExampleColor" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="productReferenceBeanExampleProductID" value="Product ID:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{productBean.converter}" id="productReferenceBeanExampleProductID" value="#{productReferenceBean.example.productID}">
+								<f:selectItem/>
+								<f:selectItems value="#{productBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="productReferenceBeanExampleProductID" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{productReferenceBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{productReferenceBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="productReferenceBeanPageItems" styleClass="data-table" value="#{productReferenceBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Color"/>
+					</f:facet>
+					<h:link outcome="/productReference/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemColor" value="#{_item.color}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modified Date"/>
+					</f:facet>
+					<h:link outcome="/productReference/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModifiedDate" value="#{_item.modifiedDate}">
+							<f:convertDateTime type="both"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Product ID"/>
+					</f:facet>
+					<h:link outcome="/productReference/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemProductID" value="#{_item.productID}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{productReferenceBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

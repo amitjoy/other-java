@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: fancyfoods.remote.config.sca
+Bundle-Version: 1.0.0
+Import-Package: fancyfoods.food;version="[1.0.0,2.0.0)",
+ fancyfoods.offers;version="[1.0.0,2.0.0)",
+ fancyfoods.sca
+Remote-Service: OSGI-INF/remote-service/*.xml
+SCA-Configuration: OSGI-INF/sca-config/food-config.xml
+Export-Package: fancyfoods.sca

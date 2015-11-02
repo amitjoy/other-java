@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_y5nL4A-4EeOYcoWV073yBQ" elementId="org.eclipse.e4.ide.application" bindingContexts="_y5nL6Q-4EeOYcoWV073yBQ">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_y5nL4Q-4EeOYcoWV073yBQ" label="DEC-RCP" x="250" y="750" width="800" height="500">
+    <children xsi:type="basic:PartSashContainer" xmi:id="_MKuq0A-5EeOYcoWV073yBQ" elementId="dec-rcp.partsashcontainer.main" containerData="" horizontal="true">
+      <children xsi:type="basic:PartStack" xmi:id="_oPBlIBA_EeOWquKC9KvNrA" elementId="dec-rcp.partstack.view.stack">
+        <children xsi:type="basic:Part" xmi:id="_OU0uYA-6EeOYcoWV073yBQ" elementId="dec-rcp.part.devices.groups" contributionURI="bundleclass://DEC-RCP/com.schneider.dec.rsp.parts.DeviceGroupsViewPart" label="Device Groups" iconURI="platform:/plugin/DEC-RCP/icons/groups_part.png" tooltip="Device Groups"/>
+        <children xsi:type="basic:Part" xmi:id="_O-_swA-6EeOYcoWV073yBQ" elementId="dec-rcp.part.devices.list" contributionURI="bundleclass://DEC-RCP/com.schneider.dec.rsp.parts.DevicesViewPart" label="Devices" iconURI="platform:/plugin/DEC-RCP/icons/devices_part.png" tooltip="Devices" closeable="true"/>
+        <children xsi:type="basic:Part" xmi:id="_PfLosA-6EeOYcoWV073yBQ" elementId="dec-rcp.part.devices.sensors" contributionURI="bundleclass://DEC-RCP/com.schneider.dec.rsp.parts.SensorsViewPart" label="Sensors" iconURI="platform:/plugin/DEC-RCP/icons/sensors_part.png" tooltip="Sensors" closeable="true"/>
+      </children>
+    </children>
+    <trimBars xmi:id="_y5nMBQ-4EeOYcoWV073yBQ">
+      <children xsi:type="menu:ToolBar" xmi:id="_y5nMBg-4EeOYcoWV073yBQ" elementId="toolbar:org.eclipse.ui.main.toolbar">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_xD06sA_TEeOWquKC9KvNrA" elementId="dec-rcp.handledtoolitem.showDevicesGroups" label="Show Device Groups" iconURI="" command="_M7ng8A_UEeOWquKC9KvNrA"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_ACmAEA_UEeOWquKC9KvNrA" elementId="dec-rcp.toolbarseparator.0"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_3MeT8A_TEeOWquKC9KvNrA" elementId="dec-rcp.handledtoolitem.showDevices" label="Show Devices" command="_R9pQYA_UEeOWquKC9KvNrA">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_pfi1ABBDEeOWquKC9KvNrA" coreExpressionId="com.schneider.dec.toolbar.active.button.show.devices"/>
+        </children>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_AfleEA_UEeOWquKC9KvNrA" elementId="dec-rcp.toolbarseparator.1"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_8IKK0A_TEeOWquKC9KvNrA" elementId="dec-rcp.handledtoolitem.showSensors" label="Show Sensors" command="_T-aOQA_UEeOWquKC9KvNrA">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_tF87ABBDEeOWquKC9KvNrA" coreExpressionId="com.schneider.dec.toolbar.active.button.show.sensors"/>
+        </children>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_E0BuwA_UEeOWquKC9KvNrA" elementId="dec-rcp.toolbarseparator.2"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_5sAN0BBJEeOWquKC9KvNrA" elementId="dec-rcp.handledtoolitem.pushToPublisher" label="Push To Publisher" command="_Br-DIBBMEeOWquKC9KvNrA"/>
+      </children>
+    </trimBars>
+    <trimBars xmi:id="_QgCZYBAVEeOWquKC9KvNrA" elementId="dec-rcp.trimbar.0" side="Bottom">
+      <children xsi:type="menu:ToolControl" xmi:id="_ZsbQcBAVEeOWquKC9KvNrA" elementId="dec-rcp.toolcontrol.bottom" contributionURI="bundleclass://DEC-RCP/com.schneider.dec.rcp.toolcontrol.BottomToolControl"/>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_WUJ9oA_UEeOWquKC9KvNrA" elementId="dec-rcp.handler.showDevicesGroups" contributionURI="bundleclass://DEC-RCP/com.schneider.dec.rsp.handlers.ShowDevicesGroupsHandler" command="_M7ng8A_UEeOWquKC9KvNrA"/>
+  <handlers xmi:id="_gPAdMA_UEeOWquKC9KvNrA" elementId="dec-rcp.handler.showDevices" contributionURI="bundleclass://DEC-RCP/com.schneider.dec.rsp.handlers.ShowDevicesHandler" command="_R9pQYA_UEeOWquKC9KvNrA"/>
+  <handlers xmi:id="_mLUDkA_UEeOWquKC9KvNrA" elementId="dec-rcp.handler.showSensors" contributionURI="bundleclass://DEC-RCP/com.schneider.dec.rsp.handlers.ShowSensorsHandler" command="_T-aOQA_UEeOWquKC9KvNrA"/>
+  <handlers xmi:id="_IKeXoBBMEeOWquKC9KvNrA" elementId="dec-rcp.handler.0" contributionURI="bundleclass://DEC-RCP/com.schneider.dec.rsp.handlers.PushToPusblisherHandler" command="_Br-DIBBMEeOWquKC9KvNrA"/>
+  <bindingTables xmi:id="_y5nL7g-4EeOYcoWV073yBQ" bindingContext="_y5nL6Q-4EeOYcoWV073yBQ">
+    <bindings xmi:id="_8Y99cBAUEeOWquKC9KvNrA" elementId="dec-rcp.keybinding.showDeviceGroups" keySequence="M1+G" command="_M7ng8A_UEeOWquKC9KvNrA"/>
+    <bindings xmi:id="_-XAXcBAUEeOWquKC9KvNrA" elementId="dec-rcp.keybinding.showDevices" keySequence="M1+D" command="_R9pQYA_UEeOWquKC9KvNrA"/>
+    <bindings xmi:id="_CI5UsBAVEeOWquKC9KvNrA" elementId="dec-rcp.keybinding.showSensors" keySequence="M1+S" command="_T-aOQA_UEeOWquKC9KvNrA"/>
+  </bindingTables>
+  <rootContext xmi:id="_y5nL6Q-4EeOYcoWV073yBQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_y5nL6g-4EeOYcoWV073yBQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_y5nL6w-4EeOYcoWV073yBQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <commands xmi:id="_M7ng8A_UEeOWquKC9KvNrA" elementId="dec-rcp.command.showDevicesGroups" commandName="Show Devices Groups"/>
+  <commands xmi:id="_R9pQYA_UEeOWquKC9KvNrA" elementId="dec-rcp.command.showDevices" commandName="Show Devices"/>
+  <commands xmi:id="_T-aOQA_UEeOWquKC9KvNrA" elementId="dec-rcp.command.showSensors" commandName="Show Sensors"/>
+  <commands xmi:id="_Br-DIBBMEeOWquKC9KvNrA" elementId="dec-rcp.command.pushToPublisher" commandName="Push To Publisher"/>
+  <addons xmi:id="_y5nL4g-4EeOYcoWV073yBQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_y5nL4w-4EeOYcoWV073yBQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_y5nL5A-4EeOYcoWV073yBQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_y5nL5Q-4EeOYcoWV073yBQ" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_y5nL5g-4EeOYcoWV073yBQ" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_y5nL5w-4EeOYcoWV073yBQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_y5nL6A-4EeOYcoWV073yBQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>

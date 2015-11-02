@@ -1,1 +1,1 @@
-# other-java
+# Miscellaneous Java Practice

@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{customerProductBean.page}"/>
+		<f:event type="preRenderView" listener="#{customerProductBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Customer Product entities"/>
+
+	<ui:define name="header">
+		Customer Product
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Customer Product entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="customerProductBeanExampleCustomerProductcol" value="Customer Productcol:"/>
+						<h:panelGroup>
+							<h:inputText id="customerProductBeanExampleCustomerProductcol" value="#{customerProductBean.example.customerProductcol}"/>
+							<h:message for="customerProductBeanExampleCustomerProductcol" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="customerProductBeanExampleRefCol1" value="Ref Col 1:"/>
+						<h:panelGroup>
+							<h:inputText id="customerProductBeanExampleRefCol1" value="#{customerProductBean.example.refCol1}"/>
+							<h:message for="customerProductBeanExampleRefCol1" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="customerProductBeanExampleRefCol2" value="Ref Col 2:"/>
+						<h:panelGroup>
+							<h:inputText id="customerProductBeanExampleRefCol2" value="#{customerProductBean.example.refCol2}"/>
+							<h:message for="customerProductBeanExampleRefCol2" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="customerProductBeanExampleReferenceID" value="Reference ID:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{productReferenceBean.converter}" id="customerProductBeanExampleReferenceID" value="#{customerProductBean.example.referenceID}">
+								<f:selectItem/>
+								<f:selectItems value="#{productReferenceBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="customerProductBeanExampleReferenceID" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="customerProductBeanExampleCountryID" value="Country ID:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{countryBean.converter}" id="customerProductBeanExampleCountryID" value="#{customerProductBean.example.countryID}">
+								<f:selectItem/>
+								<f:selectItems value="#{countryBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="customerProductBeanExampleCountryID" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{customerProductBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{customerProductBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="customerProductBeanPageItems" styleClass="data-table" value="#{customerProductBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Customer Productcol"/>
+					</f:facet>
+					<h:link outcome="/customerProduct/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCustomerProductcol" value="#{_item.customerProductcol}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Purchased Price"/>
+					</f:facet>
+					<h:link outcome="/customerProduct/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPurchasedPrice" value="#{_item.purchasedPrice}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ref Col 1"/>
+					</f:facet>
+					<h:link outcome="/customerProduct/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemRefCol1" value="#{_item.refCol1}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ref Col 2"/>
+					</f:facet>
+					<h:link outcome="/customerProduct/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemRefCol2" value="#{_item.refCol2}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Units"/>
+					</f:facet>
+					<h:link outcome="/customerProduct/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUnits" value="#{_item.units}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{customerProductBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

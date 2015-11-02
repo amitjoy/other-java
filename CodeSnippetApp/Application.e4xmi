@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_uyJRAIsCEeKgmrhUb17gMw" elementId="org.eclipse.e4.ide.application" bindingContexts="_uyJRAYsCEeKgmrhUb17gMw">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_uyJRF4sCEeKgmrhUb17gMw" label="CodeSnippetApp" width="500" height="400">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_uyJRH4sCEeKgmrhUb17gMw">
+      <children xsi:type="advanced:Perspective" xmi:id="_uyJRIIsCEeKgmrhUb17gMw">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_uyJRIYsCEeKgmrhUb17gMw" horizontal="true">
+          <children xsi:type="basic:Part" xmi:id="_fXk8QIsJEeKgmrhUb17gMw" elementId="codesnippetapp.snippet.list" containerData="2" contributionURI="bundleclass://CodeSnippetApp/codesnippetapp.views.SnippetListView" label="Code Snippets">
+            <menus xsi:type="menu:PopupMenu" xmi:id="_tY40sIsmEeKgmrhUb17gMw" elementId="codesnippetapp.snippetlist.popupmenu">
+              <children xsi:type="menu:DirectMenuItem" xmi:id="_uvgpYIsmEeKgmrhUb17gMw" elementId="codesnippetapp.directmenuitem.0" label="New Snippet" contributionURI="bundleclass://CodeSnippetApp/codesnippetapp.handlers.NewSnippetMenuHandler"/>
+              <children xsi:type="menu:DirectMenuItem" xmi:id="_8D9iAIsmEeKgmrhUb17gMw" elementId="codesnippetapp.directmenuitem.0" label="Delete" contributionURI="bundleclass://CodeSnippetApp/codesnippetapp.handlers.DeleteSnippetMenuHandler">
+                <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_-kmn4IsoEeKgmrhUb17gMw" coreExpressionId="CodeSnippetApp.delete.snippet.expression"/>
+              </children>
+            </menus>
+          </children>
+          <children xsi:type="basic:Part" xmi:id="_oQMiwIsJEeKgmrhUb17gMw" elementId="codesnippetapp.snippet.details" containerData="8" contributionURI="bundleclass://CodeSnippetApp/codesnippetapp.views.SnippetDetailsView" label="Snippet Details"/>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_uyJRGIsCEeKgmrhUb17gMw" elementId="menu:org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_uyJRGYsCEeKgmrhUb17gMw" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_uyJRGosCEeKgmrhUb17gMw" label="Open" iconURI="platform:/plugin/CodeSnippetApp/icons/sample.gif" command="_uyJRDosCEeKgmrhUb17gMw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_uyJRG4sCEeKgmrhUb17gMw" label="Save" iconURI="platform:/plugin/CodeSnippetApp/icons/save_edit.gif" command="_uyJREYsCEeKgmrhUb17gMw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_uyJRHIsCEeKgmrhUb17gMw" label="Quit" command="_uyJRCosCEeKgmrhUb17gMw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_uyJRHYsCEeKgmrhUb17gMw" label="Help">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_uyJRHosCEeKgmrhUb17gMw" label="About" command="_uyJRFIsCEeKgmrhUb17gMw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_yxRjkIsDEeKgmrhUb17gMw" elementId="codesnippetapp.menu.0" label="Search">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_4DYWYIsDEeKgmrhUb17gMw" elementId="codesnippetapp.find.menu&#x9;&#x9;&#x9;&#x9;&quot;Find Command&quot;, &quot;Find command executed&quot;);&#xD;" label="Find" command="_BW4-kIsDEeKgmrhUb17gMw"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_uyJRI4sCEeKgmrhUb17gMw">
+      <children xsi:type="menu:ToolBar" xmi:id="_uyJ4EIsCEeKgmrhUb17gMw" elementId="toolbar:org.eclipse.ui.main.toolbar">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_uyJ4EYsCEeKgmrhUb17gMw" iconURI="platform:/plugin/CodeSnippetApp/icons/sample.gif" command="_uyJRDosCEeKgmrhUb17gMw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_uyJ4EosCEeKgmrhUb17gMw" iconURI="platform:/plugin/CodeSnippetApp/icons/save_edit.gif" command="_uyJREYsCEeKgmrhUb17gMw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_GqRHQIsEEeKgmrhUb17gMw" elementId="codesnippetapp.find.toolbar" label="Find" iconURI="platform:/plugin/CodeSnippetApp/icons/find.gif" command="_BW4-kIsDEeKgmrhUb17gMw"/>
+      </children>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_uyJRC4sCEeKgmrhUb17gMw" contributionURI="bundleclass://CodeSnippetApp/codesnippetapp.handlers.QuitHandler" command="_uyJRCosCEeKgmrhUb17gMw"/>
+  <handlers xmi:id="_uyJRD4sCEeKgmrhUb17gMw" contributionURI="bundleclass://CodeSnippetApp/codesnippetapp.handlers.OpenHandler" command="_uyJRDosCEeKgmrhUb17gMw"/>
+  <handlers xmi:id="_uyJREosCEeKgmrhUb17gMw" contributionURI="bundleclass://CodeSnippetApp/codesnippetapp.handlers.SaveHandler" command="_uyJREYsCEeKgmrhUb17gMw"/>
+  <handlers xmi:id="_uyJRFYsCEeKgmrhUb17gMw" contributionURI="bundleclass://CodeSnippetApp/codesnippetapp.handlers.AboutHandler" command="_uyJRFIsCEeKgmrhUb17gMw"/>
+  <handlers xmi:id="_M9-WcIsDEeKgmrhUb17gMw" elementId="codesnippetapp.find.handler" contributionURI="bundleclass://CodeSnippetApp/codesnippetapp.handlers.FindCommandHandler" command="_BW4-kIsDEeKgmrhUb17gMw"/>
+  <bindingTables xmi:id="_uyJRDIsCEeKgmrhUb17gMw" bindingContext="_uyJRAYsCEeKgmrhUb17gMw">
+    <bindings xmi:id="_uyJRDYsCEeKgmrhUb17gMw" keySequence="M1+Q" command="_uyJRCosCEeKgmrhUb17gMw"/>
+    <bindings xmi:id="_uyJREIsCEeKgmrhUb17gMw" keySequence="M1+O" command="_uyJRDosCEeKgmrhUb17gMw"/>
+    <bindings xmi:id="_uyJRE4sCEeKgmrhUb17gMw" keySequence="M1+S" command="_uyJREYsCEeKgmrhUb17gMw"/>
+    <bindings xmi:id="_uyJRFosCEeKgmrhUb17gMw" keySequence="M1+A" command="_uyJRFIsCEeKgmrhUb17gMw"/>
+    <bindings xmi:id="_xAiSYIuKEeKgmrhUb17gMw" keySequence="M1+F" command="_BW4-kIsDEeKgmrhUb17gMw"/>
+  </bindingTables>
+  <rootContext xmi:id="_uyJRAYsCEeKgmrhUb17gMw" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_uyJRAosCEeKgmrhUb17gMw" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_uyJRA4sCEeKgmrhUb17gMw" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <commands xmi:id="_uyJRCosCEeKgmrhUb17gMw" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
+  <commands xmi:id="_uyJRDosCEeKgmrhUb17gMw" elementId="CodeSnippetApp.open" commandName="openCommand"/>
+  <commands xmi:id="_uyJREYsCEeKgmrhUb17gMw" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
+  <commands xmi:id="_uyJRFIsCEeKgmrhUb17gMw" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_BW4-kIsDEeKgmrhUb17gMw" elementId="codesnippetapp.find.command" commandName="findCommand"/>
+  <addons xmi:id="_uyJRBIsCEeKgmrhUb17gMw" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_uyJRBYsCEeKgmrhUb17gMw" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_uyJRBosCEeKgmrhUb17gMw" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_uyJRB4sCEeKgmrhUb17gMw" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_uyJRCIsCEeKgmrhUb17gMw" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_uyJRCYsCEeKgmrhUb17gMw" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>

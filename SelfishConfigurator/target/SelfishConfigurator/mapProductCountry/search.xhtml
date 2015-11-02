@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{mapProductCountryBean.page}"/>
+		<f:event type="preRenderView" listener="#{mapProductCountryBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Map Product Country entities"/>
+
+	<ui:define name="header">
+		Map Product Country
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Map Product Country entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="mapProductCountryBeanExampleProductId" value="Product Id:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{productBean.converter}" id="mapProductCountryBeanExampleProductId" value="#{mapProductCountryBean.example.productId}">
+								<f:selectItem/>
+								<f:selectItems value="#{productBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="mapProductCountryBeanExampleProductId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="mapProductCountryBeanExampleCountryId" value="Country Id:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{countryBean.converter}" id="mapProductCountryBeanExampleCountryId" value="#{mapProductCountryBean.example.countryId}">
+								<f:selectItem/>
+								<f:selectItems value="#{countryBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="mapProductCountryBeanExampleCountryId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{mapProductCountryBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{mapProductCountryBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="mapProductCountryBeanPageItems" styleClass="data-table" value="#{mapProductCountryBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modified Date"/>
+					</f:facet>
+					<h:link outcome="/mapProductCountry/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModifiedDate" value="#{_item.modifiedDate}">
+							<f:convertDateTime type="both"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Product Id"/>
+					</f:facet>
+					<h:link outcome="/mapProductCountry/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemProductId" value="#{_item.productId}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Country Id"/>
+					</f:facet>
+					<h:link outcome="/mapProductCountry/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCountryId" value="#{_item.countryId}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{mapProductCountryBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

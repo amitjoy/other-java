@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{countryBean.id}"/>
+		<f:event type="preRenderView" listener="#{countryBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Country"/>
+
+	<ui:define name="header">
+		Country
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Country
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="countryBeanCountryCountryName" value="Country Name:"/>
+			<h:outputText id="countryBeanCountryCountryName" value="#{countryBean.country.countryName}"/>
+			<h:outputText/>
+			<h:outputLabel for="countryBeanCountryCurrency" value="Currency:"/>
+			<h:outputText id="countryBeanCountryCurrency" value="#{countryBean.country.currency}"/>
+			<h:outputText/>
+			<h:outputLabel for="countryBeanCountryModifiedDate" value="Modified Date:"/>
+			<h:outputText id="countryBeanCountryModifiedDate" value="#{countryBean.country.modifiedDate}">
+				<f:convertDateTime type="both"/>
+			</h:outputText>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

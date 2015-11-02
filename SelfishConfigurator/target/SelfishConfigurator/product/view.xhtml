@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{productBean.id}"/>
+		<f:event type="preRenderView" listener="#{productBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Product"/>
+
+	<ui:define name="header">
+		Product
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Product
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="productBeanProductProductName" value="Product Name:"/>
+			<h:outputText id="productBeanProductProductName" value="#{productBean.product.productName}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductDescription" value="Description:"/>
+			<h:outputText id="productBeanProductDescription" value="#{productBean.product.description}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductLongDescription" value="Long Description:"/>
+			<h:outputText id="productBeanProductLongDescription" value="#{productBean.product.longDescription}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductImagePath" value="Image Path:"/>
+			<h:outputText id="productBeanProductImagePath" value="#{productBean.product.imagePath}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductPDFPath" value="PDF Path:"/>
+			<h:outputText id="productBeanProductPDFPath" value="#{productBean.product.PDFPath}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductRefCol1" value="Ref Col 1:"/>
+			<h:outputText id="productBeanProductRefCol1" value="#{productBean.product.refCol1}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductRefCol2" value="Ref Col 2:"/>
+			<h:outputText id="productBeanProductRefCol2" value="#{productBean.product.refCol2}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductInstallationVideoPath" value="Installation Video Path:"/>
+			<h:outputText id="productBeanProductInstallationVideoPath" value="#{productBean.product.installationVideoPath}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductBarcode" value="Barcode:"/>
+			<h:outputText id="productBeanProductBarcode" value="#{productBean.product.barcode}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductIsUpdate" value="Is Update:"/>
+			<h:outputText id="productBeanProductIsUpdate" value="#{productBean.product.isUpdate}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductIsActive" value="Is Active:"/>
+			<h:outputText id="productBeanProductIsActive" value="#{productBean.product.isActive}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductModifiedDate" value="Modified Date:"/>
+			<h:outputText id="productBeanProductModifiedDate" value="#{productBean.product.modifiedDate}">
+				<f:convertDateTime type="both"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductSubCategoryId" value="Sub Category Id:"/>
+			<h:link id="productBeanProductSubCategoryId" outcome="/subCategory/view" value="#{productBean.product.subCategoryId}">
+				<f:param name="id" value="#{productBean.product.subCategoryId.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

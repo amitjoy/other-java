@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Name: Fancy Foods Business Logic
+Bundle-Blueprint: OSGI-INF/blueprint/*.xml
+Bundle-SymbolicName: fancyfoods.business
+Bundle-Version: 1.0.0
+Bundle-ManifestVersion: 2
+Import-Package: fancyfoods.food;version="[1.0, 2.0)",
+ fancyfoods.offers;version="[1.0, 2.0)"

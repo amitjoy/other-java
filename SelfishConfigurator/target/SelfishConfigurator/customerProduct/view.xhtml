@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{customerProductBean.id}"/>
+		<f:event type="preRenderView" listener="#{customerProductBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Customer Product"/>
+
+	<ui:define name="header">
+		Customer Product
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Customer Product
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="customerProductBeanCustomerProductCustomerProductcol" value="Customer Productcol:"/>
+			<h:outputText id="customerProductBeanCustomerProductCustomerProductcol" value="#{customerProductBean.customerProduct.customerProductcol}"/>
+			<h:outputText/>
+			<h:outputLabel for="customerProductBeanCustomerProductPurchasedPrice" value="Purchased Price:"/>
+			<h:outputText id="customerProductBeanCustomerProductPurchasedPrice" value="#{customerProductBean.customerProduct.purchasedPrice}"/>
+			<h:outputText/>
+			<h:outputLabel for="customerProductBeanCustomerProductRefCol1" value="Ref Col 1:"/>
+			<h:outputText id="customerProductBeanCustomerProductRefCol1" value="#{customerProductBean.customerProduct.refCol1}"/>
+			<h:outputText/>
+			<h:outputLabel for="customerProductBeanCustomerProductRefCol2" value="Ref Col 2:"/>
+			<h:outputText id="customerProductBeanCustomerProductRefCol2" value="#{customerProductBean.customerProduct.refCol2}"/>
+			<h:outputText/>
+			<h:outputLabel for="customerProductBeanCustomerProductUnits" value="Units:"/>
+			<h:outputText id="customerProductBeanCustomerProductUnits" value="#{customerProductBean.customerProduct.units}"/>
+			<h:outputText/>
+			<h:outputLabel for="customerProductBeanCustomerProductPurchaseDate" value="Purchase Date:"/>
+			<h:outputText id="customerProductBeanCustomerProductPurchaseDate" value="#{customerProductBean.customerProduct.purchaseDate}">
+				<f:convertDateTime type="both"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="customerProductBeanCustomerProductModifiedDate" value="Modified Date:"/>
+			<h:outputText id="customerProductBeanCustomerProductModifiedDate" value="#{customerProductBean.customerProduct.modifiedDate}">
+				<f:convertDateTime type="both"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="customerProductBeanCustomerProductReferenceID" value="Reference ID:"/>
+			<h:link id="customerProductBeanCustomerProductReferenceID" outcome="/productReference/view" value="#{customerProductBean.customerProduct.referenceID}">
+				<f:param name="id" value="#{customerProductBean.customerProduct.referenceID.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="customerProductBeanCustomerProductCountryID" value="Country ID:"/>
+			<h:link id="customerProductBeanCustomerProductCountryID" outcome="/country/view" value="#{customerProductBean.customerProduct.countryID}">
+				<f:param name="id" value="#{customerProductBean.customerProduct.countryID.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="customerProductBeanCustomerProductCustomerId" value="Customer Id:"/>
+			<h:link id="customerProductBeanCustomerProductCustomerId" outcome="/user/view" value="#{customerProductBean.customerProduct.customerId}">
+				<f:param name="id" value="#{customerProductBean.customerProduct.customerId.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

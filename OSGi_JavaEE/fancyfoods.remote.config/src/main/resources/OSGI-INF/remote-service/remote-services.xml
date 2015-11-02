@@ -1,0 +1,14 @@
+<endpoint-descriptions xmlns="http://www.osgi.org/xmlns/rsa/v1.0.0">
+  <endpoint-description>
+    <property name="objectClass">
+      <array>
+        <value>fancyfoods.offers.SpecialOffer</value>
+      </array>
+    </property>
+    <property name="endpoint.id"
+      value="http://localhost:9000/fancyfoods/offers/SpecialOffer"/>
+    <property name="service.imported.configs"
+      value="org.apache.cxf.ws"/>
+  </endpoint-description>
+</endpoint-descriptions>
+

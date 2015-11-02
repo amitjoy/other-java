@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint
+	xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+	
+    <service interface="fancyfoods.offers.SpecialOffer">  
+        <service-properties>          
+            <entry key="service.exported.interfaces" 
+                   value="*"/> 
+               <entry key="service.exported.configs" 
+                   value="org.osgi.sca"/>  
+             <entry key="org.osgi.sca.bindings" 
+                   value="ForeignFood"/>
+        </service-properties>
+        
+        <bean class="fancyfoods.department.foreign.ForeignFoodOffer">
+            <property name="inventory" ref="inventory"/>
+        </bean>
+        
+    </service>
+    
+    <reference id="inventory" interface="fancyfoods.food.Inventory"/>
+    
+    <bean class="fancyfoods.department.foreign.InventoryPopulater"
+          activation="eager" init-method="populate"> 
+        <property name="inventory" ref="inventory"/>
+    </bean>
+</blueprint>

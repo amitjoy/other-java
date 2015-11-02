@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OSGi Events to Websockets Push
+Bundle-Description: Remote support for OSGi events instant notifications via web sockets.
+Bundle-SymbolicName: remote.events.push
+Bundle-Version: 1.0.0
+Bundle-Activator: impl.services.remote.events.push.Activator
+Bundle-Vendor: Amit Kumar Mondal (admin@amitinside.com)
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.json,
+ org.osgi.framework;version="1.3.0",
+ org.osgi.service.event;version="1.3.0"

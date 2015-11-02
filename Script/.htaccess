@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteBase /Source/Projects/PHP/APIFramework/src/Script
+RewriteRule ^(.*)\.(json|xml|csv|txt|printr)$ endpoint.php?api_request=$1&api_response_type=$2
+
+<Files ~ "\.ini$">
+Order allow,deny
+Deny from all
+</Files>
+

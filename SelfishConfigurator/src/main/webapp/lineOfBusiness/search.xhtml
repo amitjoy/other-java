@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{lineOfBusinessBean.page}"/>
+		<f:event type="preRenderView" listener="#{lineOfBusinessBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Line Of Business entities"/>
+
+	<ui:define name="header">
+		Line Of Business
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Line Of Business entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="lineOfBusinessBeanExampleLOBName" value="LOB Name:"/>
+						<h:panelGroup>
+							<h:inputText id="lineOfBusinessBeanExampleLOBName" value="#{lineOfBusinessBean.example.LOBName}"/>
+							<h:message for="lineOfBusinessBeanExampleLOBName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="lineOfBusinessBeanExampleLOBDescription" value="LOB Description:"/>
+						<h:panelGroup>
+							<h:inputText id="lineOfBusinessBeanExampleLOBDescription" value="#{lineOfBusinessBean.example.LOBDescription}"/>
+							<h:message for="lineOfBusinessBeanExampleLOBDescription" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{lineOfBusinessBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{lineOfBusinessBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="lineOfBusinessBeanPageItems" styleClass="data-table" value="#{lineOfBusinessBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="LOB Name"/>
+					</f:facet>
+					<h:link outcome="/lineOfBusiness/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLOBName" value="#{_item.LOBName}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="LOB Description"/>
+					</f:facet>
+					<h:link outcome="/lineOfBusiness/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLOBDescription" value="#{_item.LOBDescription}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modified Date"/>
+					</f:facet>
+					<h:link outcome="/lineOfBusiness/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModifiedDate" value="#{_item.modifiedDate}">
+							<f:convertDateTime type="both"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{lineOfBusinessBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

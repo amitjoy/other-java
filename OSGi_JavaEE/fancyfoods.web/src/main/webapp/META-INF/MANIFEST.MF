@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: fancyfoods.web
+Bundle-Version: 1.0.0
+Bundle-ClassPath: WEB-INF/classes
+Web-ContextPath: /fancyfoods.web
+Import-Package: fancyfoods.offers;version="[1.0, 2.0)", 
+ fancyfoods.food;version="[1.0, 2.0)", javax.naming,
+ javax.servlet;version="[2.5, 3.0)",
+ javax.servlet.http;version="[2.5, 3.0)"
+

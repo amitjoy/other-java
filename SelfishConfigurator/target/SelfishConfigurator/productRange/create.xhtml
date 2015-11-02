@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"	
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{productRangeBean.id}"/>
+		<f:event type="preRenderView" listener="#{productRangeBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Product Range"/>
+
+	<ui:define name="header">
+		Product Range
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test="#{!empty productRangeBean.id}">
+				Edit existing Product Range
+			</c:when>
+			<c:otherwise>
+				Create a new Product Range
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="productRangeBeanProductRangeRangeName" value="Range Name:"/>
+				<h:panelGroup>
+					<h:inputText id="productRangeBeanProductRangeRangeName" value="#{productRangeBean.productRange.rangeName}"/>
+					<h:message for="productRangeBeanProductRangeRangeName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="productRangeBeanProductRangeModifiedDate" value="Modified Date:"/>
+				<h:panelGroup>
+					<h:inputText id="productRangeBeanProductRangeModifiedDate" value="#{productRangeBean.productRange.modifiedDate}">
+						<f:convertDateTime type="both"/>
+					</h:inputText>
+					<h:message for="productRangeBeanProductRangeModifiedDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="productRangeBeanProductRangeLineofbusinessID" value="Lineofbusiness ID:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{lineOfBusinessBean.converter}" id="productRangeBeanProductRangeLineofbusinessID" value="#{productRangeBean.productRange.lineofbusinessID}">
+						<f:selectItem/>
+						<f:selectItems value="#{lineOfBusinessBean.all}"/>
+					</h:selectOneMenu>
+					<h:message for="productRangeBeanProductRangeLineofbusinessID" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="productRangeBeanProductRangeCountryID" value="Country ID:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{countryBean.converter}" id="productRangeBeanProductRangeCountryID" value="#{productRangeBean.productRange.countryID}">
+						<f:selectItem/>
+						<f:selectItems value="#{countryBean.all}"/>
+					</h:selectOneMenu>
+					<h:message for="productRangeBeanProductRangeCountryID" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action="#{productRangeBean.update}" styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test="#{!empty productRangeBean.id}">
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value="#{productRangeBean.id}"/>
+						</h:link>
+						<h:commandLink value="Delete" action="#{productRangeBean.delete}" styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

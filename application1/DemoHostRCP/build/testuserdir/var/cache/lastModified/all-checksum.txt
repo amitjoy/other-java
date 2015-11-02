@@ -1,0 +1,7 @@
+home=1366919232000
+cluster=1368576416000
+platform=1366919232000
+user=1368576416000
+crc=7
+locale=en_US
+branding=demohostrcp

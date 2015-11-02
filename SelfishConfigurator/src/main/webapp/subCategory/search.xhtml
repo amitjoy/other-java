@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{subCategoryBean.page}"/>
+		<f:event type="preRenderView" listener="#{subCategoryBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Sub Category entities"/>
+
+	<ui:define name="header">
+		Sub Category
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Sub Category entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="subCategoryBeanExampleSubCategoryName" value="Sub Category Name:"/>
+						<h:panelGroup>
+							<h:inputText id="subCategoryBeanExampleSubCategoryName" value="#{subCategoryBean.example.subCategoryName}"/>
+							<h:message for="subCategoryBeanExampleSubCategoryName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="subCategoryBeanExampleCategoryId" value="Category Id:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{categoryBean.converter}" id="subCategoryBeanExampleCategoryId" value="#{subCategoryBean.example.categoryId}">
+								<f:selectItem/>
+								<f:selectItems value="#{categoryBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="subCategoryBeanExampleCategoryId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{subCategoryBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{subCategoryBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="subCategoryBeanPageItems" styleClass="data-table" value="#{subCategoryBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sub Category Name"/>
+					</f:facet>
+					<h:link outcome="/subCategory/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemSubCategoryName" value="#{_item.subCategoryName}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modified Date"/>
+					</f:facet>
+					<h:link outcome="/subCategory/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModifiedDate" value="#{_item.modifiedDate}">
+							<f:convertDateTime type="both"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Category Id"/>
+					</f:facet>
+					<h:link outcome="/subCategory/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCategoryId" value="#{_item.categoryId}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{subCategoryBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

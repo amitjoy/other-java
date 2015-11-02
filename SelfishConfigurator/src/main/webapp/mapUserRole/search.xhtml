@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{mapUserRoleBean.page}"/>
+		<f:event type="preRenderView" listener="#{mapUserRoleBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Map User Role entities"/>
+
+	<ui:define name="header">
+		Map User Role
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Map User Role entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="mapUserRoleBeanExampleUserID" value="User ID:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{userBean.converter}" id="mapUserRoleBeanExampleUserID" value="#{mapUserRoleBean.example.userID}">
+								<f:selectItem/>
+								<f:selectItems value="#{userBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="mapUserRoleBeanExampleUserID" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="mapUserRoleBeanExampleRoleID" value="Role ID:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{roleBean.converter}" id="mapUserRoleBeanExampleRoleID" value="#{mapUserRoleBean.example.roleID}">
+								<f:selectItem/>
+								<f:selectItems value="#{roleBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="mapUserRoleBeanExampleRoleID" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{mapUserRoleBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{mapUserRoleBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="mapUserRoleBeanPageItems" styleClass="data-table" value="#{mapUserRoleBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modified Date"/>
+					</f:facet>
+					<h:link outcome="/mapUserRole/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModifiedDate" value="#{_item.modifiedDate}">
+							<f:convertDateTime type="both"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="User ID"/>
+					</f:facet>
+					<h:link outcome="/mapUserRole/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUserID" value="#{_item.userID}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Role ID"/>
+					</f:facet>
+					<h:link outcome="/mapUserRole/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemRoleID" value="#{_item.roleID}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{mapUserRoleBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

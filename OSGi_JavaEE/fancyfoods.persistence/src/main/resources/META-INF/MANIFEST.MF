@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Fancy Foods Persistence Bundle
+Bundle-SymbolicName: fancyfoods.persistence
+Bundle-Version: 1.0.0
+Meta-Persistence: 
+Import-Package: fancyfoods.food;version="[1.0.0,2.0.0)",
+ javax.persistence;version="[1.1,2.0)",
+ org.apache.openjpa.enhance,
+ org.apache.openjpa.util

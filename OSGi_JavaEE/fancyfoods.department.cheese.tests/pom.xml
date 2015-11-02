@@ -1,0 +1,96 @@
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apach
+e.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fancyfoods</groupId>
+	<artifactId>fancyfoods.department.cheese.tests</artifactId>
+	<packaging>eclipse-test-plugin</packaging><!--<co id="tycho_packaging"/> -->
+	<version>1.0.0</version>
+	<name>Fancy Foods Cheese Department Test Bundle</name>
+
+	<repositories>
+		<repository>
+			<id>runtime-environment</id>
+			<layout>p2</layout>
+			<url>file:///home/cumminsh/p2dest</url>
+		</repository>
+
+		<repository>
+			<id>eclipse-helios</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/helios</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.5.3.20110621172127</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin><!--<co id="tycho_plugin_reference"/> -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>0.12.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>0.12.0</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>maven-osgi-test-plugin</artifactId>
+				<version>0.12.0</version>
+				<configuration>
+					<systemProperties
+						combine.children="append">
+						<argLine>-javaagent:jacocoagent.jar</argLine>
+					</systemProperties>
+				</configuration>
+			</plugin>
+
+			<!-- <configuration> <testSuite>Bundle-SymbolicName-of-bundleContaining-Tests</testSuite> 
+				<testClass>FullyQualifiedNameOfTheTestClass</testClass> </configuration> -->
+		</plugins>
+
+
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.tycho.extras</groupId>
+			<artifactId>tycho-emma-coverage-plugin</artifactId>
+			<version>0.12.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>fancyfoods</groupId>
+			<artifactId>fancyfoods.persistence</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+	</dependencies>
+</project>
+

@@ -1,0 +1,8 @@
+<scact:sca-config
+	targetNamespace="http://fancyfoods"
+	xmlns:scact="http://www.osgi.org/xmlns/scact/v1.0.0"
+	xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912">
+	<sca:binding.ws
+		name="ForeignFood"
+		uri="http://localhost:8081/foreignfood" />
+</scact:sca-config>

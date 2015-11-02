@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: fancyfoods.department.foreign.sca
+Bundle-Version: 1.0.0
+Bundle-Blueprint: OSGI-INF/blueprint/*.xml
+SCA-Configuration: OSGI-INF/sca-config/food-config.xml
+Import-Package: fancyfoods.food;version="[1.0.0,2.0.0)",
+ fancyfoods.offers;version="[1.0.0,2.0.0)"
+

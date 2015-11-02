@@ -1,0 +1,6 @@
+||:com.amitinside.nb.rcp.Installer
+com.amitinside.nb.rcp.Installer
+org.openide.DialogDisplayer
+org.openide.modules.ModuleInstall
+org.openide.NotifyDescriptor$Confirmation
+org.openide.NotifyDescriptor

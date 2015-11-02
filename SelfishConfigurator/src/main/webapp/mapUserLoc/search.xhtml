@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{mapUserLocBean.page}"/>
+		<f:event type="preRenderView" listener="#{mapUserLocBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Map User Loc entities"/>
+
+	<ui:define name="header">
+		Map User Loc
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Map User Loc entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="mapUserLocBeanExampleUserid" value="Userid:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{userBean.converter}" id="mapUserLocBeanExampleUserid" value="#{mapUserLocBean.example.userid}">
+								<f:selectItem/>
+								<f:selectItems value="#{userBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="mapUserLocBeanExampleUserid" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{mapUserLocBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{mapUserLocBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="mapUserLocBeanPageItems" styleClass="data-table" value="#{mapUserLocBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modified Date"/>
+					</f:facet>
+					<h:link outcome="/mapUserLoc/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModifiedDate" value="#{_item.modifiedDate}">
+							<f:convertDateTime type="both"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Userid"/>
+					</f:facet>
+					<h:link outcome="/mapUserLoc/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUserid" value="#{_item.userid}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{mapUserLocBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

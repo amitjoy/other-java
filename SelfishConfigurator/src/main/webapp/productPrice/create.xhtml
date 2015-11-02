@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"	
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{productPriceBean.id}"/>
+		<f:event type="preRenderView" listener="#{productPriceBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Product Price"/>
+
+	<ui:define name="header">
+		Product Price
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test="#{!empty productPriceBean.id}">
+				Edit existing Product Price
+			</c:when>
+			<c:otherwise>
+				Create a new Product Price
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="productPriceBeanProductPriceProductPricecol" value="Product Pricecol:"/>
+				<h:panelGroup>
+					<h:inputText id="productPriceBeanProductPriceProductPricecol" value="#{productPriceBean.productPrice.productPricecol}"/>
+					<h:message for="productPriceBeanProductPriceProductPricecol" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="productPriceBeanProductPricePrice" value="Price:"/>
+				<h:panelGroup>
+					<h:inputText id="productPriceBeanProductPricePrice" value="#{productPriceBean.productPrice.price}"/>
+					<h:message for="productPriceBeanProductPricePrice" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="productPriceBeanProductPriceStartDate" value="Start Date:"/>
+				<h:panelGroup>
+					<h:inputText id="productPriceBeanProductPriceStartDate" value="#{productPriceBean.productPrice.startDate}">
+						<f:convertDateTime type="both"/>
+					</h:inputText>
+					<h:message for="productPriceBeanProductPriceStartDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="productPriceBeanProductPriceEndDate" value="End Date:"/>
+				<h:panelGroup>
+					<h:inputText id="productPriceBeanProductPriceEndDate" value="#{productPriceBean.productPrice.endDate}">
+						<f:convertDateTime type="both"/>
+					</h:inputText>
+					<h:message for="productPriceBeanProductPriceEndDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="productPriceBeanProductPriceModifiedDate" value="Modified Date:"/>
+				<h:panelGroup>
+					<h:inputText id="productPriceBeanProductPriceModifiedDate" value="#{productPriceBean.productPrice.modifiedDate}">
+						<f:convertDateTime type="both"/>
+					</h:inputText>
+					<h:message for="productPriceBeanProductPriceModifiedDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="productPriceBeanProductPriceRefernceID" value="Refernce ID:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{productReferenceBean.converter}" id="productPriceBeanProductPriceRefernceID" value="#{productPriceBean.productPrice.refernceID}">
+						<f:selectItem/>
+						<f:selectItems value="#{productReferenceBean.all}"/>
+					</h:selectOneMenu>
+					<h:message for="productPriceBeanProductPriceRefernceID" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="productPriceBeanProductPriceCountryd" value="Countryd:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{countryBean.converter}" id="productPriceBeanProductPriceCountryd" value="#{productPriceBean.productPrice.countryd}">
+						<f:selectItem/>
+						<f:selectItems value="#{countryBean.all}"/>
+					</h:selectOneMenu>
+					<h:message for="productPriceBeanProductPriceCountryd" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action="#{productPriceBean.update}" styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test="#{!empty productPriceBean.id}">
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value="#{productPriceBean.id}"/>
+						</h:link>
+						<h:commandLink value="Delete" action="#{productPriceBean.delete}" styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

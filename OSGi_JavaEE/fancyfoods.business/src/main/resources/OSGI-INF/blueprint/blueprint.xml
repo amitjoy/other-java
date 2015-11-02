@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint
+	xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+	<service
+		interface="fancyfoods.offers.CurrentOffers"
+		ref="offerAggregator" />
+	<bean
+		id="offerAggregator"
+		class="fancyfoods.offers.impl.OfferAggregator">
+		<property
+			name="offers"
+			ref="specialOffers" />
+	</bean>
+	<reference-list
+		id="specialOffers"
+		interface="fancyfoods.offers.SpecialOffer" />
+</blueprint>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="com.amitinside.nb.rcp">
+    <module_version install_time="1368576414974" last="true" origin="installer" specification_version="1.0">
+        <file crc="168040392" name="config/Modules/com-amitinside-nb-rcp.xml"/>
+        <file crc="2858450386" name="modules/com-amitinside-nb-rcp.jar"/>
+    </module_version>
+</module>

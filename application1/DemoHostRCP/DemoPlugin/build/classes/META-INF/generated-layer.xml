@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN"
+                            "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="Edit">
+            <file name="com-amitinside-nb-rcp-actions-SomeAction.instance">
+                <!--com.amitinside.nb.rcp.actions.SomeAction-->
+                <attr
+                    bundlevalue="com.amitinside.nb.rcp.actions.Bundle#CTL_SomeAction" name="displayName"/>
+                <attr
+                    methodvalue="org.openide.awt.Actions.alwaysEnabled" name="instanceCreate"/>
+                <attr name="delegate" newvalue="com.amitinside.nb.rcp.actions.SomeAction"/>
+                <attr name="iconBase" stringvalue="com/amitinside/nb/rcp/actions/Burn-icon.png"/>
+                <attr boolvalue="false" name="noIconInMenu"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="File">
+            <file name="com-amitinside-nb-rcp-actions-SomeAction.shadow">
+                <!--com.amitinside.nb.rcp.actions.SomeAction-->
+                <attr name="originalFile" stringvalue="Actions/Edit/com-amitinside-nb-rcp-actions-SomeAction.instance"/>
+                <attr intvalue="1300" name="position"/>
+            </file>
+        </folder>
+    </folder>
+</filesystem>

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+OpenIDE-Module: com.amitinside.nb.rcp
+OpenIDE-Module-Install: com/amitinside/nb/rcp/Installer.class
+OpenIDE-Module-Layer: com/amitinside/nb/rcp/layer.xml
+OpenIDE-Module-Localizing-Bundle: com/amitinside/nb/rcp/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

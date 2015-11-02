@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{productPriceBean.page}"/>
+		<f:event type="preRenderView" listener="#{productPriceBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Product Price entities"/>
+
+	<ui:define name="header">
+		Product Price
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Product Price entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="productPriceBeanExampleProductPricecol" value="Product Pricecol:"/>
+						<h:panelGroup>
+							<h:inputText id="productPriceBeanExampleProductPricecol" value="#{productPriceBean.example.productPricecol}"/>
+							<h:message for="productPriceBeanExampleProductPricecol" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="productPriceBeanExampleRefernceID" value="Refernce ID:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{productReferenceBean.converter}" id="productPriceBeanExampleRefernceID" value="#{productPriceBean.example.refernceID}">
+								<f:selectItem/>
+								<f:selectItems value="#{productReferenceBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="productPriceBeanExampleRefernceID" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="productPriceBeanExampleCountryd" value="Countryd:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{countryBean.converter}" id="productPriceBeanExampleCountryd" value="#{productPriceBean.example.countryd}">
+								<f:selectItem/>
+								<f:selectItems value="#{countryBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="productPriceBeanExampleCountryd" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{productPriceBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{productPriceBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="productPriceBeanPageItems" styleClass="data-table" value="#{productPriceBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Product Pricecol"/>
+					</f:facet>
+					<h:link outcome="/productPrice/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemProductPricecol" value="#{_item.productPricecol}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Price"/>
+					</f:facet>
+					<h:link outcome="/productPrice/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPrice" value="#{_item.price}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Start Date"/>
+					</f:facet>
+					<h:link outcome="/productPrice/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemStartDate" value="#{_item.startDate}">
+							<f:convertDateTime type="both"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="End Date"/>
+					</f:facet>
+					<h:link outcome="/productPrice/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEndDate" value="#{_item.endDate}">
+							<f:convertDateTime type="both"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modified Date"/>
+					</f:facet>
+					<h:link outcome="/productPrice/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModifiedDate" value="#{_item.modifiedDate}">
+							<f:convertDateTime type="both"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{productPriceBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>
